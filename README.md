@@ -6,7 +6,7 @@
 
 # Chose machine learning model (regression). Our ML model will predict the number of likes a Youtube Comment Gets.
 
-# machine learbung report: Introduction 
+# machine learning report: Introduction 
 This report investigates if it is possible to predict the number of likes a Youtube comment gets using a simple Machine Learning (ML)  model. The likes represent a form of user engagement. Understanding what influences them can provide an insight into user behavior. As the target variable is likes, this makes it numeric. So we chose a linear regression machine learning model.
 
 Data preparation
