@@ -1,6 +1,31 @@
 # Maroon 5 comment section
 
+## Dataset Overview
+Our dataset on our project contains 499 rows and 21 columns, which is more than the 200 rows needed for the project. The data comes from a YouTube video and shows how people interact with each other online.
 
+The dataset includes three types of information: numbers, categories, and true/false
+values. This will allows us to understands the data in different ways and create chart to know the patterns.
+
+**Number columns** include like count, reply count, and how many characters are in each comment. These numbers shows us how much people engage with the comments. For example, more likes or replies means to people who are more interested in what was posted.
+
+**Category columns** include the ID number, author name, and parent ID. These help us identify each row and show which replies connect to which original posts.
+
+**True/False columns** tells us whether something is a reply or an original post. This helps us separate regular posts from conversations between users.
+
+We chose this dataset because it's good for analysing how people interact online. Having many rows (499) gives us reliable results, and having several number columns means we can do calculations and create charts. The data helps us spot trends in what gets the most likes and responses.
+
+The dataset works well for our project because we can use it for descriptive statistics, create visual charts, and apply basic machine learning. All the data is public and does not contain personal information, making it ethical to use.
+
+## Data Cleaning Summary
+Fixing problems in the data beforehand improves our analysis. First, we reviewed the dataset to check for missing information, incorrect formats, and duplicate entries. 
+
+**Missing Information:** Some cells were empty, especially in the parent ID and unnamed columns. Parent ID are blank because most posts are original, not replies. The unnamed columns were almost entirely empty, so we removed them. 
+
+**Correct Formats:** We verified the numbers (likes, replies, character length) were formatted properly for calculations and charts. 
+
+**Unusual Values:** We found some extremely high numbers, like posts with many likes or very long text. These represent real user behavior, not errors, so we kept them to maintain accuracy. 
+
+This process ensures our statistics and visualisations are based on quality information. 
 
 
 
