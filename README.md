@@ -1,10 +1,11 @@
 # Maroon 5 comment section
 
 ## Dataset Overview
-Our dataset on our project contains 499 rows and 21 columns, which is more than the 200 rows needed for the project. The data comes from a YouTube video and shows how people interact with each other online.
+We will be using our project dataset which has 499 rows and 21 columns more than the required 200 rows for the project.
+The data is drawn from a YouTube video and reflects people's behaviour toward one another online.
 
-The dataset includes three types of information: numbers, categories, and true/false
-values. This will allows us to understands the data in different ways and create chart to know the patterns.
+There are three kinds of information such as numbers, categories, and true/false. This will help to do analyse the data in
+various perspective and forms chart pattern recognition.
 
 **Number columns** include like count, reply count, and how many characters are in each comment. These numbers shows us how much people engage with the comments. For example, more likes or replies means to people who are more interested in what was posted.
 
@@ -14,7 +15,7 @@ values. This will allows us to understands the data in different ways and create
 
 We chose this dataset because it's good for analysing how people interact online. Having many rows (499) gives us reliable results, and having several number columns means we can do calculations and create charts. The data helps us spot trends in what gets the most likes and responses.
 
-The dataset works well for our project because we can use it for descriptive statistics, create visual charts, and apply basic machine learning. All the data is public and does not contain personal information, making it ethical to use.
+This data set is great for projects, since we can run descriptive stats on it, do performance visual charts and also apply basic machine learning. All of the data is public and does not include personal information, so its use is ethical.
 
 ## Data Cleaning Summary
 Fixing problems in the data beforehand improves our analysis. First, we reviewed the dataset to check for missing information, incorrect formats, and duplicate entries. 
