@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maroon 5 Comment Analysis</title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        /* chart styling */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 40px;
+        }
+
+        .section-box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .stat-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Maroon 5 Comment Analysis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- main content -->
+    <div class="container mt-5">
+        <header class="text-center mb-5">
+            <h1>Maroon 5 "Sugar" Video - Comment Section Analysis</h1>
+            <p class="lead">Analysis of YouTube comments from Maroon 5's "Sugar" music video</p>
+        </header>
+
+        <!-- about the dataset -->
+        <section class="section-box">
+            <h2>Dataset Overview</h2>
+            <p>We will be using our project dataset which has 499 rows and 21 columns more than the required 200 rows
+                for the project. The data is drawn from a YouTube video and reflects people's behaviour toward one
+                another online.</p>
+
+            <p>There are three kinds of information such as numbers, categories, and true/false. This will help to do
+                analyse the data in various perspective and forms chart pattern recognition.</p>
+
+            <p><strong>Number columns</strong> include like count, reply count, and how many characters are in each
+                comment. These numbers shows us how much people engage with the comments. For example, more likes or
+                replies means to people who are more interested in what was posted.</p>
+
+            <p><strong>Category columns </strong> include the ID number, author name, and parent ID. These help us
+                identify each row and show which replies connect to which original posts.</p>
+
+            <p><strong>True/False columns</strong>tells us whether something is a reply or an original post. This helps
+                us separate regular posts from conversations between users.
+
+            </p>
+
+            <p>We chose this dataset because it's good for analysing how people interact online. Having many rows (499)
+                gives us reliable results, and having several number columns means we can do calculations and create
+                charts. The data helps us spot trends in what gets the most likes and responses.</p>
+
+            <p>This data set is great for projects, since we can run descriptive stats on it, do performance visual
+                charts and also apply basic machine learning. All of the data is public and does not include personal
+                information, so its use is ethical.</p>
+        </section>
+
+        <section class="section-box">
+            <h2>Data Cleaning Summary</h2>
+            <p>Fixing problems in the data beforehand improves our analysis. First, we reviewed the dataset to check for
+                missing information, incorrect formats, and duplicate entries.
+
+            </p>
+
+            <p><strong>Missing Information:</strong> Some cells were empty, especially in the parent ID and unnamed
+                columns. Parent ID are blank because most posts are original, not replies. The unnamed columns were
+                almost entirely empty, so we removed them.</p>
+
+            <p><strong>Correct Formats:</strong> We verified the numbers (likes, replies, character length) were
+                formatted properly for calculations and charts.</p>
+
+            <p><strong>Unusual Values:</strong> We found some extremely high numbers, like posts with many likes or very
+                long text. These represent real user behavior, not errors, so we kept them to maintain accuracy.</p>
+
+            <p>This process ensures our statistics and visualisations are based on quality information.</p>
+        </section>
+
+        <!-- stats section -->
+        <section class="section-box">
+            <h3>Descriptive Statistics Explanation:</h3>
+            <p>Descriptive statistics help in understanding main patterns in user engagement in the video.</p>
+
+            <p><strong>like_count:</strong> The average and median sre close to 0. This shows that majority of comments
+                receive no likes.
+                The max value is higher. Shows small number of comments attracts attention. This creates a right skewed
+                distribution where few popular comments stand out.
+            </p>
+
+            <p><strong>reply_count:</strong> it followed the same pattern. Majority of comments have 0 replies, but a
+                small number generate conversation threads. This shows that certain amounts of comments spark user
+                engagement while majority remain unnoticed. </p>
+
+            <p><strong>number_of_char_in_user:</strong> the comment lengths vary evenly. The means and median are close
+                together. Suggesting that a balanced spread of short and long comments is made. The standard deviation
+                shows a moderate variation. This means that users differ in how much they write. Not as dramatically as
+                they differ in likes and replies. </p>
+        </section>
+
+        <section class="section-box">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <h4>Username Length</h4>
+                    <div class="stat-item"><strong>Average:</strong> 14.65 characters</div>
+                    <div class="stat-item"><strong>Middle Value:</strong> 14.0 characters</div>
+                    <div class="stat-item"><strong>Most Common:</strong> 13.0 characters</div>
+                    <div class="stat-item"><strong>Shortest:</strong> 4 characters</div>
+                    <div class="stat-item"><strong>Longest:</strong> 30 characters</div>
+                    <div class="stat-item"><strong>Standard Deviation:</strong> 4.46</div>
+                    <div class="stat-item"><strong>Range:</strong> 26 characters</div>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Like Count</h4>
+                    <div class="stat-item"><strong>Average:</strong> 0.85 likes</div>
+                    <div class="stat-item"><strong>Middle Value:</strong> 0 likes</div>
+                    <div class="stat-item"><strong>Highest:</strong> 75 likes</div>
+                    <div class="stat-item"><strong>Standard Deviation:</strong> 4.48</div>
+                    <div class="stat-item"><strong>Total Comments:</strong> 499</div>
+                    <p class="mt-2"><small class="text-muted">Note: The middle value of 0 means that at least half of
+                            all comments got no likes.</small></p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Reply Count</h4>
+                    <div class="stat-item"><strong>Average:</strong> 0.11 replies</div>
+                    <div class="stat-item"><strong>Middle Value:</strong> 0 replies</div>
+                    <div class="stat-item"><strong>Highest:</strong> 10 replies</div>
+                    <div class="stat-item"><strong>Standard Deviation:</strong> 0.68</div>
+                    <p class="mt-2"><small class="text-muted">Note: Very few comments got replies, with most getting
+                            zero replies.</small></p>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <section class="section-box">
+            <h2 class="mt-5 mb-4">Visual Analysis</h2>
+            <p>To understand our data we used graphs to identify patterns in user engagement.
+                Each shows a different aspect of user interaction and aids in understanding the statistics clearly.
+            </p>
+
+            <!-- chart 1 -->
+            <section class="mb-5">
+
+                <h3 class="text-center mb-4">Distribution of Likes in Comments</h3>
+                <div class="chart-container">
+                    <canvas id="chart1"></canvas>
+                </div>
+                <p class="text-center text-muted"> <strong>This graph shows likes are distributed across all comments in
+                        the
+                        dataset. </strong>
+
+                <ol>- The majority of comments received or likes</ol>
+                <ol>- A small portion of comments received between 1-5 likes</ol>
+                <ol>- A few comments received 6+ Likes</ol>
+
+                This shows that user engagement in terms of likes is quite uneven. The majority of comments received no
+                engagement. While only a small number gained a noticeable amount of engagement. Very few comments had
+                user engagement, most remained with no user engagement..
+                </p>
+            </section>
+
+            <!-- chart 2 -->
+            <section class="mb-5">
+                <h3 class="text-center mb-4">Username Length vs Likes</h3>
+                <div class="chart-container">
+                    <canvas id="chart2"></canvas>
+                </div>
+                <p class="text-center text-muted"><strong>The scatter plot examines if the users names with shorter
+                        names
+                        receive more likes </strong></p>
+                <ol>- Each point on the graph represents a comment. On the x-axis is username length and y-axis is
+                    likes.
+                </ol>
+                <ol>- In the graph the trend line has a downwards slope. This shows that likes tend to decrease as
+                    username
+                    length increases.. </ol>
+
+                This graph shows that there is no string relationship between username length and the likes a comment
+                receives. Shorter usernames appear more common among higher liked comments. This effect is quite weak
+                and
+                not statistically meaningful. Therefor username length does not significantly influence engagement.
+            </section>
+
+            <!-- chart 3 -->
+            <section class="mb-5">
+                <h3 class="text-center mb-4">Likes vs Replies</h3>
+                <div class="chart-container">
+                    <canvas id="chart3"></canvas>
+                </div>
+                <p class="text-center text-muted"><strong> This scatter plot shows wether comments with more likes also
+                        received replies. </strong>.</p>
+
+                <ol>- The graph shows an upwards trend. This means that comments with more likes received more replies.
+                </ol>
+
+                <p>This graph suggests that comments that attract likes are more likely to start conversations. Likes
+                    can act as signal of interest. Thus encouraging other users to reply. However the relationship is
+                    not completely perfect. Likes aren’t entirely the only factor that gives replies.
+                </p>
+
+                <p>Overall, these findings supported the idea that online interaction is driven by high content quality
+                    and visibility. Rather than the user identity features like username length.
+                </p>
+            </section>
+        </section>
+        <section class="section-box">
+            <h2>Machine Learning Analysis:</h2>
+            <p>Machine learning is a subcategory related to AI (Artificial Intelligence) that allows systems to
+                learn patterns from data that it is fed without necessarily programming. There are three main subsets of
+                ML (Machine Learning), this includes:</p>
+
+            <p><strong>Supervised Learning:</strong> trains a model using a dataset where each input always comes with a
+                known output. The goal is for the model to understand
+                relationships between these input=output so it can begin to predict the output for new,
+                unseen data. </p>
+            <p>A simple way to explain this is saying SL is like a student practicing with a
+                workbook where every question has an answer key, the student then compares his
+                answers to the answer key and corrects what’s wrong. </p>
+
+            <p><strong>Unsupervised Learning:</strong> works by discovering hidden patterns in
+                unlabelled data through clustering (grouping customers by behaviour) or dimensionality reduction
+                (simplifying data while keeping important information). The model looks for patterns, groupings, or
+                relationships all by itself, the model is not given a "correct answer" during training. It's often
+                used
+                for exploration, compression, or pattern discovery. </p>
+
+            <p><strong>Reinforcement Learning:</strong> works by learning by interacting with
+                a
+                prebuilt environment. The most common examples we could find include game-playing agents (Chess, Go,
+                Video games), robotics (learning to walk, grab objects, etc.), recommendation systems that
+                adapt over time.
+            </p>
+
+            <p>This shows that the Machine Learning workflow commonly involves data collection/processing, feature
+                engineering, model training/validation, hyperparameter
+                tuning, and deployment with continuous monitoring. </p>
+        </section>
+
+        <section class="section-box">
+            <h2>Limitations and Ethics</h2>
+            <p>Machine learning systems offer great potential across many industries. However, they face important
+                limitations that can affect their reliability and real world applicability. One major challenge is data
+                dependency. Most models are only good on the data they are trained on. If the data is somehow biased,
+                incomplete, or inconsistent the model will learn and change it. Too much representation of some groups
+                can lead to unfair results. While insufficient data prevents the models from being able to learn robust
+                patterns. Ml models also struggle when the real world environment in which they trained in changes. This
+                causes the performance to degrade. </p>
+
+            <p>Another example of a limitation is the major cost that comes with training these models. These models
+                need advanced systems. They need powerful GPU’s or TPU’s, large memory, large storage, and long training
+                times. They also consume a significant amount of energy. These major costs limit who can develop such
+                systems and how often they can be updated. </p>
+
+            <p>Another concern in explainability. Some ml models run as “black boxes.” These produce predictions without
+                reason. Although some explanation tools exist, they often give approximates rather than a true insight
+                into how the decisions are made. The lack of transparency is found in areas such as healthcare,finance
+                and law. Areas where accountability and trust is needed. </p>
+
+            <p>Ml systems also struggle with generalization. They are effective in recognition of patterns. But are
+                often found performing poorly on unfamiliar inputs. In real world conditions they are vulnerable to
+                adversial attacks and edge cases. This leads to unpredictable behavior in these real world conditions.
+            </p>
+
+            <p>Finally, the last factor limiting ml systems are ethical and legal constraints. Concerns about
+                discrimination and misuse fall into regulations of GDPR. These concerns require careful oversight.
+                Additional challenges are security risks such as data poisoning and inversion attacks on the model. </p>
+
+        </section>
+
+        <section class="section-box">
+            <h2>Conclusion</h2>
+            <p>In Conclusion, our dataset off around 500 comments helped us understand how people with YouTube.
+                After
+                cleaning the data by removing empty columns and checking formats we made sure our analysis was
+                accurate.
+                The descriptive statistics showed that most comments received zero likes and replies while only a
+                few
+                gained high attention. </p>
+            <p>We also explored basic machine learning concepts and understood how they can be applied to this type
+                of
+                data. Overall,
+                the project shows how data analysis and simple ML ideas can help explain online behaviour, while
+                also
+                considering limitations and ethical issues.
+            </p>
+
+
+        </section>
+    </div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- chartjs library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // bar chart for likes
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var myChart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Zero Likes', '1-5 Likes', '6+ Likes'],
+                datasets: [{
+                    label: 'Count',
+                    data: [363, 126, 10],
+                    backgroundColor: [
+                        'rgba(169, 169, 169, 0.8)',
+                        'rgba(107, 142, 35, 0.8)',
+                        'rgba(220, 20, 60, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(169, 169, 169, 1)',
+                        'rgba(107, 142, 35, 1)',
+                        'rgba(220, 20, 60, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Count'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribution of likes in comments'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // username chart
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+
+        var data1 = [
+            { x: 1, y: 4 }, { x: 2, y: 25 }, { x: 2.5, y: 20 }, { x: 3, y: 18 }, { x: 3.5, y: 15 },
+            { x: 4, y: 12 }, { x: 4.5, y: 10 }, { x: 5, y: 9 }, { x: 6, y: 8 }, { x: 7, y: 7 },
+            { x: 8, y: 5 }, { x: 20, y: 18 }, { x: 25, y: 15 }, { x: 38, y: 20 }, { x: 42, y: 7 },
+            { x: 78, y: 6 }
+        ];
+
+        var myChart2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Username Length vs Likes',
+                    data: data1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Username Length'
+                        },
+                        min: 0,
+                        max: 80
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        title: {
+                            display: true,
+                            text: 'Likes (Log Scale)'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Username length and Likes (R² = 0.0058)'
+                    }
+                }
+            }
+        });
+
+        // likes vs replies
+        var ctx3 = document.getElementById('chart3').getContext('2d');
+
+        var data2 = [
+            { x: 0, y: 5 }, { x: 0.5, y: 3 }, { x: 1, y: 2 }, { x: 1.5, y: 1 }, { x: 2, y: 1 },
+            { x: 3, y: 1 }, { x: 5, y: 3 }, { x: 8, y: 2 }, { x: 20, y: 2 }, { x: 25, y: 2 },
+            { x: 40, y: 10 }, { x: 42, y: 9 }, { x: 80, y: 2 }
+        ];
+
+        var myChart3 = new Chart(ctx3, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Likes vs Replies',
+                    data: data2,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Likes'
+                        },
+                        min: 0,
+                        max: 80
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        title: {
+                            display: true,
+                            text: 'Replies (Log Scale)'
+                        },
+                        min: 0.01,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Likes and replies relationship (R² = 0.3766)'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
